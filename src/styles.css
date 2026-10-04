@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f4f1ea;
+  --color-surface: #fffdf8;
+  --color-sunken: #ebe6db;
+  --color-fg: #1a1814;
+  --color-muted: #6e675c;
+  --color-subtle: #938b80;
+  --color-primary: #2c3545;
+  --color-primary-fg: #f4f1ea;
+  --color-border: #e2d9cc;
+  --color-ring: #2c3545;
+  --color-ok: #1f6b4a;
+  --color-warn: #9a5b16;
+  --color-danger: #b42318;
+  --color-hl-0: #b42318;
+  --color-hl-1: #1d4e89;
+  --color-hl-2: #7a3e12;
+  --color-hl-3: #2f6b5a;
+  --color-hl-4: #5b2d6e;
+  --color-hl-5: #3d4a1f;
+  --font-sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-border:
+    0 0 0 1px rgb(26 24 20 / 0.06),
+    0 1px 2px -1px rgb(26 24 20 / 0.06),
+    0 2px 8px 0 rgb(26 24 20 / 0.04);
+  --shadow-border-hover:
+    0 0 0 1px rgb(26 24 20 / 0.08),
+    0 1px 2px -1px rgb(26 24 20 / 0.08),
+    0 8px 20px -8px rgb(26 24 20 / 0.12);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-primary) 18%, white);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.paper-rule {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 27px,
+    color-mix(in oklab, var(--color-fg) 6%, transparent) 28px
+  );
+}
+
+.mark-0 {
+  background: color-mix(in oklab, var(--color-hl-0) 22%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in oklab, var(--color-hl-0) 55%, transparent);
+}
+.mark-1 {
+  background: color-mix(in oklab, var(--color-hl-1) 22%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in oklab, var(--color-hl-1) 55%, transparent);
+}
+.mark-2 {
+  background: color-mix(in oklab, var(--color-hl-2) 22%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in oklab, var(--color-hl-2) 55%, transparent);
+}
+.mark-3 {
+  background: color-mix(in oklab, var(--color-hl-3) 22%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in oklab, var(--color-hl-3) 55%, transparent);
+}
+.mark-4 {
+  background: color-mix(in oklab, var(--color-hl-4) 18%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in oklab, var(--color-hl-4) 50%, transparent);
+}
+.mark-5 {
+  background: color-mix(in oklab, var(--color-hl-5) 22%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in oklab, var(--color-hl-5) 55%, transparent);
+}
+
+.mark-active {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+}
